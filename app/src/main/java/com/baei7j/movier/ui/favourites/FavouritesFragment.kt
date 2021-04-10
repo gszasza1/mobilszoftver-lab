@@ -1,4 +1,4 @@
-package com.baei7j.movier.ui.list
+package com.baei7j.movier.ui.favourites
 
 import android.os.Bundle
 import android.view.View
@@ -6,10 +6,10 @@ import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.dagger.getViewModelFromFactory
 import com.baei7j.movier.R
 
-class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>() {
+class FavouritesFragment : RainbowCakeFragment<FavouritesViewState, FavouritesViewModel>() {
 
     override fun provideViewModel() = getViewModelFromFactory()
-    override fun getViewResource() = R.layout.fragment_list
+    override fun getViewResource() = R.layout.fragment_favourites
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -23,7 +23,7 @@ class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>() {
         viewModel.load()
     }
 
-    override fun render(viewState: ListViewState) {
+    override fun render(viewState: FavouritesViewState) {
         // TODO Render state
     }
 
