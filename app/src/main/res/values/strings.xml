@@ -1,4 +1,6 @@
 <resources>
-    <string name="app_name">Blank</string>
+    <string name="app_name">Movier</string>
     <string name="blankfragment">BlankFragment</string>
+    <string name="listfragment">ListFragment</string>
+    <string name="favouritesfragment">favouritesFragment</string>
 </resources>

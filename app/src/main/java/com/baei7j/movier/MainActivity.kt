@@ -2,7 +2,7 @@ package com.baei7j.movier
 
 import android.os.Bundle
 import co.zsmb.rainbowcake.navigation.SimpleNavActivity
-import com.baei7j.movier.ui.blank.BlankFragment
+import com.baei7j.movier.ui.list.ListFragment
 
 class MainActivity : SimpleNavActivity() {
 
@@ -11,7 +11,7 @@ class MainActivity : SimpleNavActivity() {
         setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
-            navigator.add(BlankFragment())
+            navigator.add(ListFragment())
         }
     }
 
