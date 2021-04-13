@@ -4,11 +4,11 @@ import co.zsmb.rainbowcake.base.RainbowCakeViewModel
 import javax.inject.Inject
 
 class FavouritesViewModel @Inject constructor(
-    private val blankPresenter: FavouritesPresenter
+    private val favouritesPresenter: FavouritesPresenter
 ) : RainbowCakeViewModel<FavouritesViewState>(Loading) {
 
     fun load() = execute {
-        viewState = FavouritesReady(blankPresenter.getData())
+        viewState = FavouritesReady(favouritesPresenter.getData())
     }
 
 }
