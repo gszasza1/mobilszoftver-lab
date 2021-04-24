@@ -2,6 +2,8 @@ package com.baei7j.movier
 
 import android.os.Bundle
 import co.zsmb.rainbowcake.navigation.SimpleNavActivity
+import com.baei7j.movier.data.AppDatabase
+import com.baei7j.movier.data.entities.FavouriteMovie
 import com.baei7j.movier.ui.list.ListFragment
 
 class MainActivity : SimpleNavActivity() {
@@ -13,6 +15,9 @@ class MainActivity : SimpleNavActivity() {
         if (savedInstanceState == null) {
             navigator.add(ListFragment())
         }
+        Thread {
+            AppDatabase.getInstance(this).favouriteMovieDao().insertFavouriteMovie(FavouriteMovie(null))
+        }.start()
     }
 
 }
