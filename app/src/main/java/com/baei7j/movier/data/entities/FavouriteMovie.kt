@@ -6,6 +6,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName= "favourite_movie")
 data class FavouriteMovie(
-    @PrimaryKey(autoGenerate= true) var movieId: Long?,
-    @ColumnInfo(name = "sajt") var sajt: Boolean = true,
+    @PrimaryKey(autoGenerate = true) var id: Long?,
+    @ColumnInfo(name = "overview") var overview: String?,
+    @ColumnInfo(name = "release_date") var release_date: kotlin.String?,
+    @ColumnInfo(name = "original_title") var original_title: kotlin.String?,
+    @ColumnInfo(name = "original_language") var original_language: kotlin.String?,
+    @ColumnInfo(name = "title") var title: kotlin.String?,
+    @ColumnInfo(name = "popularity") var popularity: kotlin.Long?,
+    @ColumnInfo(name = "vote_average") var vote_average: kotlin.Long?
 )

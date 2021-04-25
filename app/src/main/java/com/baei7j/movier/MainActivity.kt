@@ -15,9 +15,7 @@ class MainActivity : SimpleNavActivity() {
         if (savedInstanceState == null) {
             navigator.add(ListFragment())
         }
-        Thread {
-            AppDatabase.getInstance(this).favouriteMovieDao().insertFavouriteMovie(FavouriteMovie(null))
-        }.start()
+
     }
 
 }
