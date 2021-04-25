@@ -8,7 +8,7 @@ class FavouritesViewModel @Inject constructor(
 ) : RainbowCakeViewModel<FavouritesViewState>(Loading) {
 
     fun load() = execute {
-        viewState = FavouritesReady(favouritesPresenter.getData())
+        viewState = FavouritesReady(favouritesPresenter.getAllFavourtieMovies())
     }
 
 }
