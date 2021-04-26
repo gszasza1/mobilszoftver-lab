@@ -13,8 +13,8 @@ class FavouritesPresenter @Inject constructor(private val movieInteractor: Movie
     suspend fun getAllFavourtieMovies(): MutableList<FavouriteMovie> = withIOContext {
         return@withIOContext movieInteractor.getFavouriteList().toMutableList()
     }
-    suspend fun deleteFavouriteMovies() = withIOContext {
-       //
+    suspend fun deleteFavouriteMovies(favouriteMovie: FavouriteMovie) = withIOContext {
+        return@withIOContext movieInteractor.deleteFavouriteMovieNetwork(favouriteMovie)
     }
 
 
