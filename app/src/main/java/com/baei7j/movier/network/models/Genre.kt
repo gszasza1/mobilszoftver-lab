@@ -19,7 +19,7 @@ package com.baei7j.movier.network.models
  */
 data class Genre (
     val name: kotlin.String? = null,
-    val id: kotlin.String? = null
+    val id: kotlin.Int? = null
 ) {
 
 }
