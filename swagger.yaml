@@ -1,0 +1,399 @@
+swagger: "2.0"
+info:
+  description: "This is the description of the called APIs"
+  version: "1.0.0"
+  title: "Movier"
+  contact:
+    email: "gszasza1@gmail.com"
+tags:
+- name: "movie"
+  description: "Information about movies"
+schemes:
+- "https"
+- "http"
+paths:
+  /movie/favourite/{id}:
+    post:
+      tags:
+      - "movie"
+      summary: "Add a movie to the favourite list"
+      description: "Using the movie Id as a base, add the movie to the user favourite list."
+      operationId: "addFavouriteMovie"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        description: "ID of saved movie"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "405":
+          description: "Invalid input"
+        "200":
+         description: "Succesfully added"
+    delete:
+      tags:
+      - "movie"
+      summary: "Delete a movie from the favourite list"
+      description: "Using the movie Id as a base, delete the movie from the user favourite list."
+      operationId: "deleteFavouriteMovie"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "id"
+        description: "ID of saved movie"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "405":
+          description: "Invalid input"
+        "200":
+         description: "Succesfully deleted"
+         
+  /movie/top_rated:  
+    get:
+      tags:
+      - "movie"
+      summary: "Get latest movies"
+      description: "Get latest movie from Public API"
+      operationId: "getLatestMovies"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "api_key"
+        description: "my Public api key"
+        required: true
+        type: "string"
+        format: "string"
+      responses:
+        "401":
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/ErrorMessage"
+        "404":
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/ErrorMessage"
+        "200":
+          description: "Success"
+          schema:
+            $ref: "#/definitions/MovieList"
+  /search/movie:  
+    get:
+      tags:
+      - "movie"
+      summary: "Search movies"
+      description: "Search movies by text"
+      operationId: "searchMovie"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "api_key"
+        description: "my Public api key"
+        required: true
+        type: "string"
+        format: "string"
+      - in: "query"
+        name: "query"
+        description: "text to search"
+        required: true
+        type: "string"
+        format: "string"
+      responses:
+        "401":
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/ErrorMessage"
+        "404":
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/ErrorMessage"
+        "200":
+          description: "Success"
+          schema:
+            $ref: "#/definitions/MovieList"
+            
+  /movie/{movie_id}:  
+    get:
+      tags:
+      - "movie"
+      summary: "Get movie by Id"
+      description: "Get movie by Id"
+      operationId: "GetMovieById"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "api_key"
+        description: "my Public api key"
+        required: true
+        type: "string"
+        format: "string"
+      - in: "path"
+        name: "movie_id"
+        description: "ID of the movie"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "401":
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/ErrorMessage"
+        "404":
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/ErrorMessage"
+        "200":
+          description: "Success"
+          schema:
+            $ref: "#/definitions/DetailedMovie"
+definitions:
+  DetailedMovie:
+    type: "object"
+    properties:
+      adult: 
+        type: "boolean"
+        format: "boolean"
+        default: false
+      backdrop_path:
+        type: "string"
+        format: "string"
+        default: null
+      belongs_to_collection:
+        type: "object"
+      budget:
+        type: "integer"
+        format: "int64" 
+      genres: 
+        type: "array"
+        xml:
+          name: "results"
+          wrapped: true
+        items:
+          $ref: "#/definitions/Genre"
+      homepage:
+        type: "string"
+        default: null 
+      id:
+        type: "integer"
+        format: "int64" 
+      imdb_id:
+        type: "string"
+        default: null  
+      original_language:
+        type: "string"
+      original_title:
+        type: "string" 
+      overview: 
+        type: "string"
+      popularity: 
+        type: "number"
+        format: "double" 
+      poster_path:
+        type: "string"
+        default: null 
+      production_companies: 
+        type: "array"
+        xml:
+          name: "results"
+          wrapped: true
+        items:
+          $ref: "#/definitions/ProductionCompany"
+      production_countries: 
+        type: "array"
+        xml:
+          name: "results"
+          wrapped: true
+        items:
+          $ref: "#/definitions/ProductionCountry"
+      release_date:
+        type: "string" 
+      revenue:
+        type: "integer"
+        format: "int64"   
+      
+      runtime:
+        type: "integer"
+        format: "int64" 
+        default: null  
+      spoken_languages: 
+        type: "array"
+        xml:
+          name: "results"
+          wrapped: true
+        items:
+          $ref: "#/definitions/SpokenLanguage"
+      status:
+        type: "string" 
+      tagline:
+        type: "string"
+        default: null  
+      title:
+        type: "string"
+      video:
+        type: "boolean"
+        format: "boolean"
+        default: false 
+      vote_average:
+        type: "number"
+        format: "double" 
+      vote_count:
+        type: "integer"
+        format: "int64"  
+        xml:
+          name: "results"
+          wrapped: true
+        items:
+          $ref: "#/definitions/Movie"
+    xml:
+      name: "DetailedMovie"
+  MovieList:
+    type: "object"
+    properties:
+      page:
+        type: "integer"
+        format: "int64"
+      total_results:
+        type: "integer"
+        format: "int64"
+      total_pages:
+        type: "integer"
+        format: "int64"
+      results:
+        type: "array"
+        xml:
+          name: "results"
+          wrapped: true
+        items:
+          $ref: "#/definitions/Movie"
+    xml:
+      name: "MovieList"
+  Movie:
+    type: "object"
+    properties:
+      poster_path:
+        type: "string"
+        default: null
+      adult:
+        type: "boolean"
+        format: "boolean"
+        default: false
+      overview:
+        type: "string"
+      release_date:
+        type: "string"
+      genre_ids:
+        type: "array"
+        xml:
+          name: "genre"
+          wrapped: true
+        items:
+          type: integer
+      id:
+        type: "integer"
+        format: "int64"
+      original_title:
+        type: "string"
+      original_language:
+        type: "string"
+      title:
+        type: "string"
+      backdrop_path:
+        type: "string"
+        format: "string"
+        default: null
+      popularity:
+        type: "integer"
+        format: "int64"
+      vote_count:
+        type: "integer"
+        format: "int64"
+      video:
+        type: "boolean"
+      vote_average:
+        type: "integer"
+        format: "int64"
+    xml:
+      name: "Movie"
+  ProductionCompany: 
+    type: "object"
+    properties:
+      id: 
+        type: "integer"
+        format: "int64"
+      logo_path: 
+        type: "string"
+      name: 
+        type: "string"
+      origin_country: 
+        type: "string"
+    xml:
+      name: "ProductionCompany"
+  ProductionCountry: 
+    type: "object"
+    properties:
+      name: 
+        type: "string"
+      iso_3166_1: 
+        type: "string"
+    xml:
+      name: "ProductionCountry"
+  Genre: 
+    type: "object"
+    properties:
+      name: 
+        type: "string"
+      id: 
+        type: "integer"
+        format: "int64"
+    xml:
+      name: "Genre"
+  SpokenLanguage: 
+    type: "object"
+    properties:
+      name: 
+        type: "string"
+      iso_639_1: 
+        type: "string"
+    xml:
+      name: "SpokenLanguage"
+  ErrorMessage:
+    type: "object"
+    properties:
+      status_message: 
+        type: "string"
+      status_code: 
+        type: "integer"
+        format: "int64"
+    xml:
+      name: "ErrorMessage"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

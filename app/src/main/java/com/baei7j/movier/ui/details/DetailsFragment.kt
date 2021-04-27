@@ -19,8 +19,8 @@ class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel>(
 
     override fun onStart() {
         super.onStart()
-
-        viewModel.load()
+        val id = "1"
+        viewModel.load(id)
     }
 
     override fun render(viewState: DetailsViewState) {

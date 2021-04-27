@@ -10,10 +10,10 @@ interface FavouriteMovieDAO {
 
     @Query("SELECT * FROM favourite_movie")
     fun getFavouriteMovies(): List<FavouriteMovie>
-    @Query("SELECT * FROM favourite_movie WHERE id = :movieId")
+    @Query("SELECT * FROM favourite_movie WHERE movieId = :movieId")
     fun getSpecificFavouriteMovie(movieId: Long): FavouriteMovie
     @Insert
-    fun insertFavouriteMovie(vararg movie: FavouriteMovie)
+    suspend fun insertFavouriteMovie(vararg movie: FavouriteMovie)
     @Delete
-    fun deleteFavouriteMovie(movie: FavouriteMovie)
+    suspend fun deleteFavouriteMovie(movie: FavouriteMovie)
 }
