@@ -12,18 +12,18 @@ class NetworkDataSource @Inject constructor(
     private val movieApi: MovieApi,
     private val mockMovieApi: IMockMovieApi,
 ) {
-    private val api_key="5637779ad0397a76e1cddf7bc16c3a4d"
+    private val apiKey="5637779ad0397a76e1cddf7bc16c3a4d"
 
     suspend fun getLatestMovies(): MovieList {
-        return mockMovieApi.getLatestMovies(api_key)
+        return mockMovieApi.getLatestMovies(apiKey)
     }
 
     suspend fun searchMovie(query: String): MovieList {
-       return mockMovieApi.searchMovie(api_key, query)
+       return mockMovieApi.searchMovie(apiKey, query)
     }
 
     suspend fun getMovieById(movieId: String): DetailedMovie {
-        return mockMovieApi.getMovieById(api_key, movieId)
+        return mockMovieApi.getMovieById(apiKey, movieId)
     }
 
     suspend fun addFavouriteMovie(id: String) {

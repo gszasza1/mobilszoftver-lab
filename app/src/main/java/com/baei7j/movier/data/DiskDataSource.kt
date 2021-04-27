@@ -1,6 +1,5 @@
 package com.baei7j.movier.data
 
-import android.content.Context
 import com.baei7j.movier.data.entities.FavouriteMovie
 import com.baei7j.movier.data.entities.FavouriteMovieDAO
 import javax.inject.Inject
