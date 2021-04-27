@@ -10,7 +10,7 @@ import com.baei7j.movier.di.ApplicationModule
 import com.baei7j.movier.di.DaggerAppComponent
 import timber.log.Timber
 
-class BlankApplication : RainbowCakeApplication() {
+class MovierApplication : RainbowCakeApplication() {
 
     override lateinit var injector: AppComponent
 

@@ -10,7 +10,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name="com.baei7j.movier.BlankApplication"
+        android:name="com.baei7j.movier.MovierApplication"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name="com.baei7j.movier.MainActivity">
             <intent-filter>
