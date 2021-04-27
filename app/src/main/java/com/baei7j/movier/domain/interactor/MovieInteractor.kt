@@ -23,17 +23,16 @@ class MovieInteractor @Inject constructor(
     suspend fun searchMovie(search: String): MovieList {
         return networkDataSource.searchMovie(search)
     }
-    private fun insertFavouriteMovieLocally(favouriteMovie: FavouriteMovie){
+    suspend fun insertFavouriteMovieLocally(favouriteMovie: FavouriteMovie){
         return diskDataSource.insertFavourite(favouriteMovie)
     }
-
     suspend fun deleteFavouriteMovieNetwork(id: String){
         return networkDataSource.deleteFavouriteMovie(id)
     }
     suspend fun insertFavouriteMovieNetwork(id: String){
         return networkDataSource.addFavouriteMovie(id)
     }
-    fun deleteFavouriteMovieLocally(favouriteMovie: FavouriteMovie){
+    suspend fun deleteFavouriteMovieLocally(favouriteMovie: FavouriteMovie){
         return diskDataSource.deleteFavourite(favouriteMovie)
     }
 }

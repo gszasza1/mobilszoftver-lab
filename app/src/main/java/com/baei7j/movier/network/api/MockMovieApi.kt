@@ -3,7 +3,7 @@ package com.baei7j.movier.network.api
 import com.baei7j.movier.network.models.*
 import kotlinx.coroutines.delay
 
-class MockMovieApi : MovieApi{
+class MockMovieApi : IMockMovieApi{
     val movieList: MovieList = MovieList(
         page = 1,
         total_pages = 1,
@@ -33,7 +33,6 @@ class MockMovieApi : MovieApi{
     override suspend fun searchMovie(apiKey: String, query: String): MovieList {
         return movieList
     }
-
     override suspend fun getMovieById(apiKey: String, movieId: String): DetailedMovie {
        val detailedMovie: DetailedMovie = DetailedMovie(
            vote_count = 3,

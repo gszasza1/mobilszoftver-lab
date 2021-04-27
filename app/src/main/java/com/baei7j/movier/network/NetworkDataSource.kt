@@ -1,6 +1,6 @@
 package com.baei7j.movier.network
 
-import com.baei7j.movier.network.api.MockMovieApi
+import com.baei7j.movier.network.api.IMockMovieApi
 import com.baei7j.movier.network.api.MovieApi
 import com.baei7j.movier.network.models.DetailedMovie
 import com.baei7j.movier.network.models.MovieList
@@ -10,7 +10,7 @@ import javax.inject.Singleton
 @Singleton
 class NetworkDataSource @Inject constructor(
     private val movieApi: MovieApi,
-    private val mockMovieApi: MockMovieApi,
+    private val mockMovieApi: IMockMovieApi,
 ) {
     private val api_key="5637779ad0397a76e1cddf7bc16c3a4d"
 

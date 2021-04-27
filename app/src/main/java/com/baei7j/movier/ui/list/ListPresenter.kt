@@ -8,7 +8,7 @@ import javax.inject.Inject
 class ListPresenter @Inject constructor(private val movieInteractor: MovieInteractor) {
 
     suspend fun getLatestMovies() = withIOContext {
-        return@withIOContext movieInteractor.getLatestList().toMutableList()
+        return@withIOContext movieInteractor.getLatestList()
     }
 
 }

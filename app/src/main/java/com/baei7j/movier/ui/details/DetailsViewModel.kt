@@ -7,8 +7,8 @@ class DetailsViewModel @Inject constructor(
     private val detailsPresenter: DetailsPresenter
 ) : RainbowCakeViewModel<DetailsViewState>(Loading) {
 
-    fun load() = execute {
-        viewState = BlankReady(detailsPresenter.getData())
+    fun load(id: String) = execute {
+        viewState = DetailsReady(detailsPresenter.getById(id))
     }
 
 }

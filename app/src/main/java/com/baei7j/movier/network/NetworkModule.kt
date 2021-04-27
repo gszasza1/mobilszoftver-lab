@@ -1,5 +1,6 @@
 package com.baei7j.movier.network
 
+import com.baei7j.movier.network.api.IMockMovieApi
 import com.baei7j.movier.network.api.MockMovieApi
 import com.baei7j.movier.network.api.MovieApi
 import com.facebook.stetho.okhttp3.StethoInterceptor
@@ -53,7 +54,7 @@ abstract class NetworkModule {
 
         @Provides
         @Singleton
-        fun provideMockNewsApi(): MovieApi {
+        fun provideMockNewsApi(): IMockMovieApi {
             return MockMovieApi()
         }
     }

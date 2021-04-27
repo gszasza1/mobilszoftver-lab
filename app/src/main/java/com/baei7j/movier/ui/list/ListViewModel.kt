@@ -8,7 +8,7 @@ class ListViewModel @Inject constructor(
 ) : RainbowCakeViewModel<ListViewState>(Loading) {
 
     fun load() = execute {
-        viewState = BlankReady(listPresenter.getLatestMovies())
+        viewState = ListReady(listPresenter.getLatestMovies())
     }
 
 }
