@@ -1,7 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="205dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitStart"
+        android:id="@+id/movieDetailsImage"
+        app:layout_constraintBottom_toTopOf="@+id/movieDetailsTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:minHeight="200dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/movie_image_picture" />
+    <TextView
+        android:id="@+id/movieDetailsTitle"
+        android:layout_width="339dp"
+        android:layout_height="40dp"
+        android:ems="2"
+        android:gravity="left"
+        android:text="@string/title"
+        android:padding="5dp"
+        android:paddingStart="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/addMovieButton"
+        app:layout_constraintTop_toBottomOf="@+id/movieDetailsImage"
+        tools:ignore="RtlSymmetry" />
+
+    <Button
+        android:id="@+id/addMovieButton"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="500dp"
+        android:text="@string/add"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieDetailsImage"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf=""/>
+
+    <TextView
+        android:id="@+id/movieDescription"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="left"
+        android:text="@string/description"
+        android:padding="10dp"
+        android:minHeight="100dp"
+        android:background="@color/background_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieDetailsTitle"
+        tools:layout_editor_absoluteX="2dp" />
+
+    <TextView
+        android:id="@+id/movieCreation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="left"
+        android:text="@string/creation"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieDescription" />
+    <TextView
+        android:id="@+id/movieCreationData"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="left"
+        android:layout_margin="10dp"
+        android:text="@string/creation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieCreation" />
+    <TextView
+        android:id="@+id/moviePopularity"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="left"
+        android:padding="5dp"
+        android:text="@string/popularity"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieCreationData" />
+    <TextView
+        android:id="@+id/moviePopularityData"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="left"
+        android:layout_margin="10dp"
+        android:text="@string/creation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moviePopularity" />
+    <TextView
+        android:id="@+id/movieLength"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="left"
+        android:padding="5dp"
+        android:text="@string/length"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moviePopularityData" />
+    <TextView
+        android:id="@+id/movieLengthData"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="2"
+        android:gravity="left"
+        android:layout_margin="10dp"
+        android:text="@string/creation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieLength" />
+
+    <Button
+        android:id="@+id/favouriteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/favourite"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:bottomRightRadius="10dp"
+        android:bottomLeftRadius="10dp"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp"/>
+    <Button
+        android:id="@+id/listButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/list"
+        android:bottomRightRadius="10dp"
+        android:bottomLeftRadius="10dp"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

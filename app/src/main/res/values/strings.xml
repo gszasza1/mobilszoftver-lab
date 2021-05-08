@@ -3,4 +3,14 @@
     <string name="blankfragment">BlankFragment</string>
     <string name="listfragment">ListFragment</string>
     <string name="favouritesfragment">favouritesFragment</string>
+    <string name="length">Length</string>
+    <string name="creation">Creation</string>
+    <string name="favourite">Favourite</string>
+    <string name="list">List</string>
+    <string name="popularity">Popularity</string>
+    <string name="description">Description</string>
+    <string name="add">Add</string>
+    <string name="movie_image_picture">Movie image picture</string>
+    <string name="title">Title</string>
+    <string name="order">Order</string>
 </resources>
