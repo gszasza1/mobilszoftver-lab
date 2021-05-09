@@ -23,9 +23,10 @@
         android:contentDescription="@string/movie_image_picture" />
     <TextView
         android:id="@+id/movieDetailsTitle"
-        android:layout_width="339dp"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:ems="2"
+        android:minHeight="40dp"
         android:gravity="left"
         android:text="@string/title"
         android:padding="5dp"
@@ -33,6 +34,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/addMovieButton"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/movieDetailsImage"
         tools:ignore="RtlSymmetry" />
 
@@ -46,8 +48,7 @@
         android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/movieDetailsImage"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf=""/>
+        app:layout_constraintHorizontal_bias="1.0"/>
 
     <TextView
         android:id="@+id/movieDescription"

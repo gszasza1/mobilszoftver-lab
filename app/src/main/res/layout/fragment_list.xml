@@ -28,7 +28,6 @@
         android:textColor="@android:color/white"
         android:topLeftRadius="10dp"
         android:topRightRadius="10dp"
-        app:layout_constraint="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/searchMovie"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,24 +41,33 @@
         app:layout_constraintTop_toBottomOf="@+id/searchMovie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/listButton"
+        app:layout_constraintBottom_toTopOf="@id/favouriteButton"
         android:layout_marginBottom="16dp"
         tools:listitem="@layout/fragment_movie_row" />
     <Button
-        android:id="@+id/listButton"
+        android:id="@+id/favouriteButton"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginBottom="16dp"
         android:background="@color/colorPrimary"
         android:bottomLeftRadius="10dp"
         android:bottomRightRadius="10dp"
-        android:text="@string/list"
+        android:text="@string/favourite"
         android:textColor="@android:color/white"
         android:topLeftRadius="10dp"
         android:topRightRadius="10dp"
-        app:layout_constraint="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteX="161dp" />
+    <ProgressBar
+        android:id="@+id/listProgressBar"
+        android:layout_width="@dimen/progress_bar_size"
+        android:layout_height="@dimen/progress_bar_size"
+        android:visibility="gone"
+        android:indeterminateTint="#303030"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

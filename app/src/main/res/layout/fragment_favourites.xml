@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/favouritesFragmentRoot">
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/favouritesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -29,9 +29,18 @@
         android:textColor="@android:color/white"
         android:topLeftRadius="10dp"
         android:topRightRadius="10dp"
-        app:layout_constraint="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteX="161dp" />
+    <ProgressBar
+    android:id="@+id/favouriteProgressBar"
+    android:layout_width="@dimen/progress_bar_size"
+    android:layout_height="@dimen/progress_bar_size"
+    android:visibility="gone"
+    android:indeterminateTint="#303030"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
