@@ -49,7 +49,8 @@ abstract class NetworkModule {
         @Provides
         @Singleton
         fun provideMoiveApi(retrofit: Retrofit): MovieApi {
-            return retrofit.create()
+            var result = retrofit.create(MovieApi::class.java)
+            return result
         }
 
         @Provides

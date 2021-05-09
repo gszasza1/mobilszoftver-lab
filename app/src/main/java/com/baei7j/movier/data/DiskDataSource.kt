@@ -14,11 +14,12 @@ class DiskDataSource @Inject constructor(
         return mockfavouriteMovieDAO.getFavouriteMovies()
     }
 
-    suspend fun deleteFavourite(favouriteMovie: FavouriteMovie){
-        return mockfavouriteMovieDAO.deleteFavouriteMovie(favouriteMovie)
+    suspend fun deleteFavourite(favouriteMovie: FavouriteMovie): List<FavouriteMovie>{
+        mockfavouriteMovieDAO.deleteFavouriteMovie(favouriteMovie)
+        return this.getFavouriteList()
     }
 
     suspend fun insertFavourite(favouriteMovie: FavouriteMovie){
-        return mockfavouriteMovieDAO.insertFavouriteMovie(favouriteMovie)
+        return  mockfavouriteMovieDAO.insertFavouriteMovie(favouriteMovie)
     }
 }

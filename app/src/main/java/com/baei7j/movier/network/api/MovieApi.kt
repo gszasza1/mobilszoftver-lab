@@ -5,7 +5,7 @@ import com.baei7j.movier.network.models.MovieList
 import retrofit2.http.*
 
 interface MovieApi {
-    @GET("/movie/top_rated")
+    @GET("/movie/popular")
     suspend fun getLatestMovies(
         @Query("api_key") apiKey: String
     ): MovieList
