@@ -7,8 +7,13 @@ class ListViewModel @Inject constructor(
     private val listPresenter: ListPresenter
 ) : RainbowCakeViewModel<ListViewState>(Loading) {
 
-    fun load() = execute {
-        viewState = ListReady(listPresenter.getLatestMovies())
+    fun load(isAsc : Boolean) = execute {
+        var result = listPresenter.getLatestMovies(isAsc)
+        viewState = ListReady(listOf())
+        viewState = ListReady(result)
+    }
+    fun search(seaxhText : String, isAsc : Boolean) = execute {
+        viewState = ListReady(listPresenter.getLatestMovies(seaxhText, isAsc))
     }
 
 }
