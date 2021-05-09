@@ -6,4 +6,4 @@ sealed class FavouritesViewState
 
 object Loading : FavouritesViewState()
 
-data class FavouritesReady(val data: MutableList<FavouriteMovie>) : FavouritesViewState()
+data class FavouritesReady(val data: List<FavouriteMovie>) : FavouritesViewState()
