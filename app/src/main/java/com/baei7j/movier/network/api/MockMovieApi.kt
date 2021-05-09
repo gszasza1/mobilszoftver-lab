@@ -2,8 +2,9 @@ package com.baei7j.movier.network.api
 
 import com.baei7j.movier.network.models.*
 import kotlinx.coroutines.delay
+import javax.inject.Inject
 
-class MockMovieApi : IMockMovieApi{
+class MockMovieApi @Inject constructor() : IMockMovieApi{
     private val movieList = MovieList(
         page = 1,
         total_pages = 1,
