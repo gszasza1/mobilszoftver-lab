@@ -1,5 +1,6 @@
 package com.baei7j.movier.network
 
+import android.util.Log
 import com.baei7j.movier.network.api.IMockMovieApi
 import com.baei7j.movier.network.api.MovieApi
 import com.baei7j.movier.network.models.DetailedMovie
@@ -22,11 +23,13 @@ class NetworkDataSource @Inject constructor(
     }
 
     suspend fun searchMovie(query: String): List<Movie>? {
-       return movieApi.searchMovie(apiKey, query).results?.toList()
+        var result = movieApi.searchMovie(apiKey, query).results?.toList()
+        return result
     }
 
     suspend fun getMovieById(movieId: String): DetailedMovie {
-        return movieApi.getMovieById(apiKey, movieId)
+        var result = movieApi.getMovieById(movieId, apiKey)
+        return result
     }
 
     suspend fun addFavouriteMovie(id: String) {

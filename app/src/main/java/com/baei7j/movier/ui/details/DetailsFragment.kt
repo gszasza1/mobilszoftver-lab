@@ -71,6 +71,7 @@ class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel> 
             is DetailsReady -> showDetailsReady(viewState)
         }
     }
+
     private fun showDetailsReady(viewState: DetailsReady) {
         detailState = viewState
         movieDetailsTitle.text = viewState.data.title

@@ -16,8 +16,8 @@ class Converter {
             overview = movie.overview!!,
             original_title = movie.original_title!!,
             original_language = movie.original_language!!,
-            movieId = movie.id
+            movieId = null
         )
-    }
+     }
     }
 }
