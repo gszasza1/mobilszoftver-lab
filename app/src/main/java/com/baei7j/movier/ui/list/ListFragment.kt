@@ -40,7 +40,7 @@ class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>(), MovieL
     }
     override fun onStart() {
         super.onStart()
-        viewModel.load(isAsc)
+        viewModel.loadLatest(isAsc)
     }
     private fun setupButtons(){
         favouriteButton.setOnClickListener {
@@ -53,7 +53,7 @@ class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>(), MovieL
             if(searchMovie.text.toString().isNotEmpty()){
                 viewModel.search(searchMovie.text.toString(), isAsc)
             }else{
-                viewModel.load(isAsc)
+                viewModel.loadLatest(isAsc)
             }
             adapter.notifyDataSetChanged()
         }

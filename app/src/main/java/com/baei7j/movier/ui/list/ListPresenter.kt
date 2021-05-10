@@ -9,7 +9,7 @@ class ListPresenter @Inject constructor(private val movieInteractor: MovieIntera
     suspend fun getLatestMovies(isAsc : Boolean) = withIOContext {
         movieInteractor.getLatestList(isAsc)
     }
-    suspend fun getLatestMovies(searchText:String, isAsc : Boolean) = withIOContext {
+    suspend fun getSearchMovies(searchText:String, isAsc : Boolean) = withIOContext {
         movieInteractor.searchMovie(searchText, isAsc)
     }
 

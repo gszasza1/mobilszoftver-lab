@@ -8,7 +8,7 @@ import javax.inject.Singleton
 @Singleton
 class DiskDataSource @Inject constructor(
         private val favouriteMovieDAO: FavouriteMovieDAO,
-        private val mockfavouriteMovieDAO: IMockFavouriteMovieDAO
+    //    private val mockfavouriteMovieDAO: IMockFavouriteMovieDAO
 ) {
     fun getFavouriteList(): List<FavouriteMovie> {
         return favouriteMovieDAO.getFavouriteMovies()

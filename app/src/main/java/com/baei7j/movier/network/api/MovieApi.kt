@@ -2,6 +2,7 @@ package com.baei7j.movier.network.api
 
 import com.baei7j.movier.network.models.DetailedMovie
 import com.baei7j.movier.network.models.MovieList
+import retrofit2.Response
 import retrofit2.http.*
 
 interface MovieApi {
@@ -26,10 +27,10 @@ interface MovieApi {
     @POST("movie/favourite/{id}")
     suspend fun addFavouriteMovie(
         @Path("id") id: String,
-    )
+    ): Response<Unit>
 
     @DELETE("movie/favourite/{id}")
     suspend fun deleteFavouriteMovie(
         @Path("id") id: String,
-    )
+    ): Response<Unit>
 }

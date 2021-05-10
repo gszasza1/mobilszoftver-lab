@@ -22,7 +22,6 @@ class MovieInteractor @Inject constructor(
         if(!isAsc){
             result = result?.reversed()
         }
-       // delay(3000L)
         return result
     }
     suspend fun getMovieDetails(movieId: String): DetailedMovie {
@@ -33,18 +32,19 @@ class MovieInteractor @Inject constructor(
         if(!isAsc){
             result = result?.reversed()
         }
-       // delay(3000L)
         return result
     }
     suspend fun insertFavouriteMovieLocally(movie: DetailedMovie){
         var result = Converter.DetailsToMovie(movie)
         return diskDataSource.insertFavourite(result)
     }
-    suspend fun deleteFavouriteMovieNetwork(id: String){
-        return networkDataSource.deleteFavouriteMovie(id)
+    suspend fun deleteFavouriteMovieNetwork(id: String): Boolean {
+        var result =  networkDataSource.deleteFavouriteMovie(id)
+        return result.isSuccessful
     }
-    suspend fun insertFavouriteMovieNetwork(id: String){
-        return networkDataSource.addFavouriteMovie(id)
+    suspend fun insertFavouriteMovieNetwork(id: String): Boolean {
+        var result = networkDataSource.addFavouriteMovie(id)
+        return result.isSuccessful
     }
     suspend fun deleteFavouriteMovieLocally(favouriteMovie: FavouriteMovie): List<FavouriteMovie> {
         return diskDataSource.deleteFavourite(favouriteMovie)

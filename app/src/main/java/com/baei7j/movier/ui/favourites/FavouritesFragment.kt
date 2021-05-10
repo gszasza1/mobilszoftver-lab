@@ -26,7 +26,7 @@ class FavouritesFragment : RainbowCakeFragment<FavouritesViewState, FavouritesVi
     override fun onStart() {
         super.onStart()
 
-        viewModel.load()
+        viewModel.loadFavourites()
     }
     private fun setupButtons(){
         listButton.setOnClickListener {

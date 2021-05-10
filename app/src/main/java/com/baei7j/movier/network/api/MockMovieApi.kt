@@ -2,6 +2,7 @@ package com.baei7j.movier.network.api
 
 import com.baei7j.movier.network.models.*
 import kotlinx.coroutines.delay
+import retrofit2.Response
 import javax.inject.Inject
 
 class MockMovieApi @Inject constructor() : IMockMovieApi{
@@ -109,11 +110,13 @@ class MockMovieApi @Inject constructor() : IMockMovieApi{
         )
     }
 
-    override suspend fun addFavouriteMovie(id: String) {
+    override suspend fun addFavouriteMovie(id: String): Response<Unit> {
         delay(1000)
+        return Response.success(Unit)
     }
 
-    override suspend fun deleteFavouriteMovie(id: String) {
+    override suspend fun deleteFavouriteMovie(id: String): Response<Unit> {
         delay(1000)
+        return Response.success(Unit)
     }
 }
