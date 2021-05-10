@@ -40,10 +40,10 @@ data class Movie (
     val original_language: kotlin.String? = null,
     val title: kotlin.String? = null,
     val backdrop_path: kotlin.String? = null,
-    val popularity: kotlin.Long? = null,
-    val vote_count: kotlin.Long? = null,
+    val popularity: kotlin.Double? = null,
+    val vote_count: kotlin.Double? = null,
     val video: kotlin.Boolean? = null,
-    val vote_average: kotlin.Long? = null
+    val vote_average: kotlin.Double? = null
 ) {
 
 }

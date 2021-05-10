@@ -11,51 +11,52 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
-import retrofit2.create
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 
 @Module
-abstract class NetworkModule {
+class NetworkModule {
 
     companion object {
         private const val SERVER_URL = "https://api.themoviedb.org/3/"
+    }
 
-        @Provides
-        @Singleton
-        fun provideOkHttpClient(): OkHttpClient {
-            return OkHttpClient.Builder()
-                    .addNetworkInterceptor { chain ->
-                        Thread.sleep(3000)
-                        chain.proceed(chain.request())
-                    }
-                    .addNetworkInterceptor(StethoInterceptor())
-                    .build()
-        }
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addNetworkInterceptor { chain ->
+                Thread.sleep(3000)
+                chain.proceed(chain.request())
+            }
+            .addNetworkInterceptor(StethoInterceptor())
+            .build()
+    }
 
-        @Provides
-        @Singleton
-        fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-            return Retrofit.Builder()
-                    .baseUrl(SERVER_URL)
-                    .client(okHttpClient)
-                    .addConverterFactory(
-                       GsonConverterFactory.create(
-                            GsonBuilder()
-                                    .setLenient()
-                                    .create()
-                    ))
-                    .build()
-        }
+    @Provides
+    @Singleton
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(SERVER_URL)
+            .client(okHttpClient)
+            .addConverterFactory(
+                GsonConverterFactory.create(
+                    GsonBuilder()
+                        .setLenient()
+                        .create()
+                )
+            )
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .build()
+    }
 
-        @Provides
-        @Singleton
-        fun provideMoiveApi(retrofit: Retrofit): MovieApi {
-            return retrofit.create()
-        }
+    @Provides
+    @Singleton
+    fun provideDnd5eApi(retrofit: Retrofit): MovieApi =
+        retrofit.create(MovieApi::class.java)
 
-        @Provides
-        @Singleton
-        fun provideMockNewsApi(): IMockMovieApi {
-            return MockMovieApi()
-        }
+    @Provides
+    @Singleton
+    fun provideMockCharacterApi(): IMockMovieApi {
+        return MockMovieApi()
     }
 }
