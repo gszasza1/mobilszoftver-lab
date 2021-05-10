@@ -8,7 +8,7 @@ class FavouritesViewModel @Inject constructor(
     private val favouritesPresenter: FavouritesPresenter
 ) : RainbowCakeViewModel<FavouritesViewState>(Loading) {
 
-    fun load() = execute {
+    fun loadFavourites() = execute {
         viewState = FavouritesReady(favouritesPresenter.getAllFavourtieMovies())
     }
     fun deleteLocal(movie : FavouriteMovie) = execute {
