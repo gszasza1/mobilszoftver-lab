@@ -13,9 +13,11 @@ import co.zsmb.rainbowcake.navigation.navigator
 import com.baei7j.movier.R
 import com.baei7j.movier.ui.favourites.FavouritesFragment
 import com.baei7j.movier.ui.list.ListFragment
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_details.*
 import kotlinx.android.synthetic.main.fragment_details.favouriteButton
 import kotlinx.android.synthetic.main.fragment_list.*
+import java.net.URL
 
 class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel> {
 
@@ -44,8 +46,11 @@ class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel> 
     }
     private fun setupButtons(){
         addMovieButton.setOnClickListener {
+            if(detailState.data != null){
+
             viewModel.insertLocally(detailState.data)
             viewModel.insertNetwork(detailState.data.id.toString())
+            }
         }
         favouriteButton.setOnClickListener {
             navigator?.add(FavouritesFragment())
@@ -79,6 +84,7 @@ class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel> 
         moviePopularityData.text = viewState.data.popularity.toString()
         movieDescription.text = viewState.data.overview
         movieLengthData.text = viewState.data.runtime.toString()
+        Picasso.get().load("https://image.tmdb.org/t/p/w500/" +viewState.data.poster_path + "?api_key=5637779ad0397a76e1cddf7bc16c3a4d").into(movieDetailsImage)
     }
 
 }

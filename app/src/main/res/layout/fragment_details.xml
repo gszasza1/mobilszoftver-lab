@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:ems="2"
         android:gravity="left"
-        android:text="@string/description"
+        android:text="@string/loading"
         android:padding="10dp"
         android:minHeight="100dp"
         android:background="@color/background_gray"
@@ -83,7 +83,7 @@
         android:ems="2"
         android:gravity="left"
         android:layout_margin="10dp"
-        android:text="@string/creation"
+        android:text="@string/loading"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/movieCreation" />
     <TextView
@@ -105,7 +105,7 @@
         android:ems="2"
         android:gravity="left"
         android:layout_margin="10dp"
-        android:text="@string/creation"
+        android:text="@string/loading"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/moviePopularity" />
     <TextView
@@ -127,7 +127,7 @@
         android:ems="2"
         android:gravity="left"
         android:layout_margin="10dp"
-        android:text="@string/creation"
+        android:text="@string/loading"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/movieLength" />
 
