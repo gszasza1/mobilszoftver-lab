@@ -41,12 +41,12 @@ class MovieInteractorTest {
     }
 
     @Test
-    fun `delete network`() = runBlockingTest {
+    fun `delete movie`() = runBlockingTest {
         val result = movieInteractor.deleteFavouriteMovieNetwork("2")
         Assert.assertEquals(result, true)
     }
     @Test
-    fun `insert network`() = runBlockingTest {
+    fun `insert movie`() = runBlockingTest {
         val result = movieInteractor.insertFavouriteMovieNetwork("2")
         Assert.assertEquals(result, true)
     }
